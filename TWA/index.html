@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TWA Sebelat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add to head section -->
+    <style>
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .wave-animation {
+            animation: wave 15s linear infinite;
+            display: flex;
+        }
+        .wave-container {
+            min-width: 100%;
+        }
+        body {
+            scroll-padding-top: 5rem;
+        }
+    </style>
+</head>
+<body class="bg-green-900">
+    <!-- Navigation -->
+    <nav class="bg-green-800 p-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://placehold.co/40x40" alt="Logo" class="w-10 h-10 bg-white rounded-lg">
+                <span class="text-white text-xl font-bold">TWA Sebelat</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-white hover:text-green-200 transition-colors">Beranda</a>
+                <a href="#about" class="text-white hover:text-green-200 transition-colors">Tentang</a>
+                <a href="#attractions" class="text-white hover:text-green-200 transition-colors">Atraksi</a>
+                <a href="#gallery" class="text-white hover:text-green-200 transition-colors">Galeri</a>
+                <a href="#contact" class="text-white hover:text-green-200 transition-colors">Kontak</a>
+            </div>
+            <button id="menuBtn" class="text-white text-3xl md:hidden">
+                ☰
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="fixed inset-0 bg-green-900 bg-opacity-95 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+            <div class="flex flex-col items-center justify-center h-full">
+                <button id="closeBtn" class="absolute top-4 right-4 text-white text-3xl">
+                    ×
+                </button>
+                <div class="flex flex-col space-y-8 text-center">
+                    <a href="#hero" class="text-white text-2xl hover:text-green-200 transition-colors">Beranda</a>
+                    <a href="#about" class="text-white text-2xl hover:text-green-200 transition-colors">Tentang</a>
+                    <a href="#attractions" class="text-white text-2xl hover:text-green-200 transition-colors">Atraksi</a>
+                    <a href="#gallery" class="text-white text-2xl hover:text-green-200 transition-colors">Galeri</a>
+                    <a href="#contact" class="text-white text-2xl hover:text-green-200 transition-colors">Kontak</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add this script before closing body tag -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Close menu when clicking a link
+        Array.from(mobileLinks).forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+    </script>
+
+    <!-- Add padding to body to account for fixed navbar -->
+    <div class="pt-16">
+        <!-- Hero Section -->
+        <main id="hero" class="min-h-screen flex items-center">
+            <div class="container mx-auto px-4 py-16 text-center">
+                <h1 class="text-white text-4xl md:text-6xl font-bold mb-6">
+                    Taman Wisata Alam Sebelat
+                </h1>
+                <p class="text-white text-xl md:text-2xl mb-12">
+                    Petualangan Bersama Gajah Sumatera di Bengkulu
+                </p>
+                <a href="#" class="inline-block bg-green-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition-colors">
+                    Jelajahi Sekarang
+                </a>
+            </div>
+        </main>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-green-800 text-4xl font-bold mb-8">Tentang TWA Sebelat</h2>
+                    <div class="max-w-3xl mx-auto">
+                        <img src="path/to/elephant-icon.png" alt="Elephant Icon" class="w-32 h-32 mx-auto mb-8">
+                        <p class="text-gray-700 text-lg mb-6">
+                            Taman Wisata Alam Sebelat terletak di Provinsi Bengkulu, Sumatera, Indonesia. Kawasan konservasi ini merupakan rumah bagi populasi gajah Sumatera (Elephas maximus sumatranus) yang dilindungi.
+                        </p>
+                        <p class="text-gray-700 text-lg mb-6">
+                            Dengan luas sekitar 10.000 hektar, TWA Sebelat menawarkan pengalaman ekowisata yang menakjubkan dengan fokus pada konservasi gajah dan pendidikan lingkungan.
+                        </p>
+                        <p class="text-gray-700 text-lg mb-12">
+                            Pengunjung dapat berinteraksi dengan gajah-gajah jinak yang telah dilatih oleh pawang berpengalaman, sambil menikmati keindahan alam hutan tropis yang masih asri.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h3 class="text-green-800 text-2xl font-bold mb-4">Flora & Fauna</h3>
+                                <p class="text-gray-700">
+                                    Keanekaragaman hayati yang luar biasa dengan berbagai spesies endemik Sumatera.
+                                </p>
+                            </div>
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h3 class="text-green-800 text-2xl font-bold mb-4">Konservasi</h3>
+                                <p class="text-gray-700">
+                                    Pusat pelestarian dan perlindungan gajah Sumatera yang terancam punah.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attractions Section -->
+        <section id="attractions" class="py-16 bg-green-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-green-800 text-4xl font-bold text-center mb-12">Atraksi Wisata</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Gajah Safari Card -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg h-full">
+                        <div class="bg-green-100 p-12 flex items-center justify-center">
+                            <img src="path/to/binocular-icon.png" alt="Safari Icon" class="w-24 h-24">
+                        </div>
+                        <div class="p-6 flex flex-col h-full">
+                            <h3 class="text-green-800 text-2xl font-bold mb-4">Gajah Safari</h3>
+                            <p class="text-gray-700 mb-6 flex-grow">
+                                Nikmati pengalaman menunggangi gajah melalui jalur hutan yang indah. Anda akan dipandu oleh pawang gajah berpengalaman yang akan menjelaskan tentang perilaku dan habitat gajah Sumatera.
+                            </p>
+                            <a href="#" class="text-green-500 font-semibold flex items-center hover:text-green-600">
+                                Selengkapnya →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pusat Pelatihan Card -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg h-full">
+                        <div class="bg-green-100 p-12 flex items-center justify-center">
+                            <img src="path/to/training-icon.png" alt="Training Icon" class="w-24 h-24">
+                        </div>
+                        <div class="p-6 flex flex-col h-full">
+                            <h3 class="text-green-800 text-2xl font-bold mb-4">Pusat Pelatihan Gajah</h3>
+                            <p class="text-gray-700 mb-6 flex-grow">
+                                Kunjungi pusat pelatihan gajah untuk melihat bagaimana gajah-gajah dilatih dan dirawat. Anda dapat menyaksikan pertunjukan keterampilan gajah yang menakjubkan.
+                            </p>
+                            <a href="#" class="text-green-500 font-semibold flex items-center hover:text-green-600">
+                                Selengkapnya →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Memandikan Gajah Card -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg h-full">
+                        <div class="bg-green-100 p-12 flex items-center justify-center">
+                            <img src="path/to/bath-icon.png" alt="Bath Icon" class="w-24 h-24">
+                        </div>
+                        <div class="p-6 flex flex-col h-full">
+                            <h3 class="text-green-800 text-2xl font-bold mb-4">Memandikan Gajah</h3>
+                            <p class="text-gray-700 mb-6 flex-grow">
+                                Bergabunglah dalam aktivitas memandikan gajah di sungai. Pengalaman interaktif ini memungkinkan Anda untuk terlibat langsung dalam perawatan gajah sehari-hari.
+                            </p>
+                            <a href="#" class="text-green-500 font-semibold flex items-center hover:text-green-600">
+                                Selengkapnya →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-green-800 text-4xl font-bold text-center mb-12">Galeri TWA Sebelat</h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Gallery Item 1 -->
+                    <div class="bg-green-800 rounded-2xl overflow-hidden shadow-lg p-6">
+                        <div class="aspect-w-4 aspect-h-3 mb-4">
+                            <img src="path/to/gallery1.jpg" alt="Gajah di Habitat Alami" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">Gajah di Habitat Alami</h3>
+                        <p class="text-gray-200">Gajah Sumatera menjelajahi hutan TWA Sebelat</p>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="bg-green-800 rounded-2xl overflow-hidden shadow-lg p-6">
+                        <div class="aspect-w-4 aspect-h-3 mb-4">
+                            <img src="path/to/gallery2.jpg" alt="Pusat Konservasi" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">Pusat Konservasi</h3>
+                        <p class="text-gray-200">Fasilitas perawatan dan konservasi gajah</p>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="bg-green-800 rounded-2xl overflow-hidden shadow-lg p-6">
+                        <div class="aspect-w-4 aspect-h-3 mb-4">
+                            <img src="path/to/gallery3.jpg" alt="Safari Adventure" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">Safari Adventure</h3>
+                        <p class="text-gray-200">Pengalaman safari bersama gajah Sumatera</p>
+                    </div>
+
+                    <!-- Gallery Item 4 -->
+                    <div class="bg-green-800 rounded-2xl overflow-hidden shadow-lg p-6">
+                        <div class="aspect-w-4 aspect-h-3 mb-4">
+                            <img src="path/to/gallery4.jpg" alt="Pelatihan Gajah" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">Pelatihan Gajah</h3>
+                        <p class="text-gray-200">Program pelatihan gajah oleh pawang ahli</p>
+                    </div>
+
+                    <!-- Gallery Item 5 -->
+                    <div class="bg-green-800 rounded-2xl overflow-hidden shadow-lg p-6">
+                        <div class="aspect-w-4 aspect-h-3 mb-4">
+                            <img src="path/to/gallery5.jpg" alt="Pemandian Gajah" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">Pemandian Gajah</h3>
+                        <p class="text-gray-200">Aktivitas memandikan gajah di sungai</p>
+                    </div>
+
+                    <!-- Gallery Item 6 -->
+                    <div class="bg-green-800 rounded-2xl overflow-hidden shadow-lg p-6">
+                        <div class="aspect-w-4 aspect-h-3 mb-4">
+                            <img src="path/to/gallery6.jpg" alt="Keindahan Alam" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">Keindahan Alam</h3>
+                        <p class="text-gray-200">Panorama hutan tropis TWA Sebelat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-green-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-white text-4xl font-bold text-center mb-12">Hubungi Kami</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div class="text-white text-center md:text-left">
+                        <h3 class="text-3xl font-bold mb-10">Informasi Kontak</h3>
+                        
+                        <div class="space-y-8">
+                            <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <p class="text-xl font-semibold">Taman Wisata Alam Sebelat</p>
+                                    <p class="text-lg">Kabupaten Bengkulu Utara</p>
+                                    <p class="text-lg">Provinsi Bengkulu, Indonesia</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                                <a href="mailto:info@twasebelat.co.id" class="text-lg hover:text-green-200">info@twasebelat.co.id</a>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                                <a href="tel:+6281234567890" class="text-lg hover:text-green-200">+62 812 3456 7890</a>
+                            </div>
+
+                            <div class="flex items-center justify-center md:justify-start space-x-6 pt-4">
+                                <a href="#" class="bg-white p-2 rounded-full hover:bg-green-200 transition-colors">
+                                    <svg class="w-6 h-6 text-green-800" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="bg-white p-2 rounded-full hover:bg-green-200 transition-colors">
+                                    <svg class="w-6 h-6 text-green-800" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544A8.127 8.127 0 0 1 5.5 16.898a5.778 5.778 0 0 0 4.252-1.189 2.879 2.879 0 0 1-2.684-1.995 2.88 2.88 0 0 0 1.298-.049c-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359a2.877 2.877 0 0 1-.889-3.835 8.153 8.153 0 0 0 5.92 3.001 2.876 2.876 0 0 1 4.895-2.62 5.73 5.73 0 0 0 1.824-.697 2.884 2.884 0 0 1-1.263 1.589 5.73 5.73 0 0 0 1.649-.453 5.765 5.765 0 0 1-1.433 1.489z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="bg-white p-2 rounded-full hover:bg-green-200 transition-colors">
+                                    <svg class="w-6 h-6 text-green-800" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 15.87c-.24 1.16-.866 2.18-1.834 2.73-2.97 1.68-6.48.77-7.88-2.03-.84-1.69-.62-3.76.54-5.28.82-1.07 2.15-1.82 3.51-1.82.05 0 .1.01.15.01.86-1.66 2.52-2.69 4.43-2.69.21 0 .42.02.63.05 1.28.18 2.41.88 3.15 1.96.74 1.08 1.04 2.39.84 3.67-.19 1.29-.84 2.43-1.85 3.21-.24.19-.36.49-.32.79.04.3.23.56.51.67.11.04.22.06.33.06.2 0 .39-.06.55-.18 1.32-1.02 2.19-2.45 2.46-4.03.27-1.58-.09-3.18-1.02-4.51-.93-1.33-2.3-2.2-3.85-2.44-.26-.04-.51-.06-.77-.06-2.34 0-4.27 1.71-4.61 3.93-.02.15-.03.3-.03.45 0 .37.06.73.16 1.08.04.12.07.24.07.37 0 .33-.17.64-.45.82-.28.18-.63.19-.92.04-1.85-.98-3.02-2.84-3.02-4.82 0-3.03 2.47-5.5 5.5-5.5s5.5 2.47 5.5 5.5c0 .08 0 .16-.01.24.96-.09 1.86.41 2.23 1.32.37.91.17 1.95-.48 2.59z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="bg-white p-2 rounded-full hover:bg-green-200 transition-colors">
+                                    <svg class="w-6 h-6 text-green-800" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg p-8">
+                    <h3 class="text-green-800 text-2xl font-bold mb-6">Kirim Pesan</h3>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">Subjek</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Pesan</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="py-16 bg-green-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-green-800 text-4xl font-bold text-center mb-12">Lokasi Kami</h2>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-12 text-center">
+                <div class="mb-8">
+                    <svg class="w-16 h-16 text-green-800 mx-auto mb-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                    <h3 class="text-green-800 text-3xl font-bold mb-4">Taman Wisata Alam Sebelat</h3>
+                    <p class="text-gray-700 text-xl mb-4">Kabupaten Bengkulu Utara, Provinsi Bengkulu, Indonesia</p>
+                    <p class="text-gray-600 text-lg mb-8">Koordinat: -3.2641, 101.8924</p>
+                    
+                    <a href="https://maps.google.com/?q=-3.2641,101.8924" target="_blank" 
+                       class="inline-block bg-green-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition-colors">
+                        Lihat di Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-24 bg-green-800 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h2 class="text-white text-4xl md:text-5xl font-bold mb-6">
+                    Siap Untuk Petualangan Bersama Gajah?
+                </h2>
+                <p class="text-white text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+                    Jelajahi keindahan alam dan pengalaman unik bersama gajah Sumatera di Taman Wisata Alam Sebelat, Bengkulu.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="#" class="inline-block bg-white text-green-800 px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-100 transition-colors">
+                        Pesan Tiket
+                    </a>
+                    <a href="#" class="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-green-800 transition-colors">
+                        Pelajari Lebih Lanjut
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- About TWA -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <img src="https://placehold.co/40x40" alt="Logo" class="w-10 h-10 bg-white rounded-lg">
+                        <span class="text-xl font-bold">TWA Sebelat</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Taman Wisata Alam Sebelat adalah kawasan konservasi yang menawarkan pengalaman ekowisata bersama gajah Sumatera yang dilindungi.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Tautan Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Beranda</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Atraksi</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Galeri</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Information -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Informasi</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Jam Operasional</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Harga Tiket</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Paket Wisata</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Fasilitas</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Berlangganan</h4>
+                    <p class="text-gray-300 mb-4">
+                        Dapatkan informasi terbaru dan penawaran spesial dari kami.
+                    </p>
+                    <form class="space-y-4">
+                        <input 
+                            type="email" 
+                            placeholder="Email Anda" 
+                            class="w-full px-4 py-2 bg-green-800 border border-green-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                        >
+                        <button type="submit" class="w-full bg-green-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                            Langganan
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-green-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2024 TWA Sebelat. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Background Wave Effect -->
+    <div class="absolute bottom-0 left-0 right-0 z-[-1] opacity-20 overflow-hidden">
+        <div class="wave-animation w-[200%]">
+            <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#22c55e" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+            <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#22c55e" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+    <!-- Add to head section -->
+    <style>
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .wave-animation {
+            animation: wave 15s linear infinite;
+            display: flex;
+        }
+        .wave-container {
+            min-width: 100%;
+        }
+        body {
+            scroll-padding-top: 5rem;
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <main id="hero" class="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-green-900 to-green-800">
+        <div class="container mx-auto px-4 py-32 text-center relative z-10">
+            <h1 class="text-white text-4xl md:text-6xl font-bold mb-6">
+                Taman Wisata Alam Sebelat
+            </h1>
+            <p class="text-white text-xl md:text-2xl mb-12">
+                Petualangan Bersama Gajah Sumatera di Bengkulu
+            </p>
+            <a href="#about" class="inline-block bg-green-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition-colors">
+                Jelajahi Sekarang
+            </a>
+        </div>
+        
+        <!-- Wave Shape Divider -->
+        <div class="hero-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </main>
+</html>
